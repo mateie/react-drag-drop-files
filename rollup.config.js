@@ -29,5 +29,5 @@ export default {
     svgr(),
     terser()
   ],
-  external: ['styled-components', 'prop-types']
+  external: ['@emotion/css', '@emotion/styled', '@emotion/react', 'prop-types']
 };

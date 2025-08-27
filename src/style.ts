@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css } from '@emotion/css';
 
 const primary = '#0658c2',
   darkGray = '#666',

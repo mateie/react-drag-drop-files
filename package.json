@@ -24,10 +24,7 @@
   "scripts": {
     "build": "rollup -c && tsc --emitDeclarationOnly && cp dist/src/index.d.ts dist/index.d.ts && cp dist/src/FileUploader.d.ts dist/FileUploader.d.ts",
     "build-watch": "rollup -c -w",
-    "start-playground": "cd playground && npm run start",
-    "install-all": "yarn install && cd playground && npm i",
-    "dev": "npm-run-all --parallel build-watch start-playground",
-    "deploy:npm": "yarn run build && npm publish",
+    "prepublish": "pnpm run build",
     "lint:check": "eslint --ext .ts --ext .tsx .",
     "lint:fix": "eslint --fix --ext .ts --ext .tsx .",
     "test": "jest",
@@ -37,7 +34,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\"",
     "security:audit": "echo 'Security audit skipped - vulnerabilities are in dev dependencies only'",
-    "ci": "yarn type-check && yarn lint:check && yarn format:check && yarn build",
+    "ci": "pnpm type-check && pnpm lint:check && pnpm format:check && pnpm build",
     "bundle-size": "echo 'Bundle sizes:' && ls -lh dist/*.js && echo 'TypeScript declarations:' && ls -lh dist/*.d.ts"
   },
   "eslintConfig": {
@@ -81,8 +78,10 @@
     ]
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "styled-components": "^6.1.11"
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -104,7 +103,6 @@
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
-    "@types/styled-components": "^5.1.10",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^7.32.0",
@@ -124,6 +122,7 @@
   },
   "volta": {
     "node": "14.17.6",
-    "yarn": "1.22.11"
-  }
+    "pnpm": "1.22.11"
+  },
+  "packageManager": "pnpm@8.15.4+sha512.0bd3a9be9eb0e9a692676deec00a303ba218ba279d99241475616b398dbaeedd11146f92c2843458f557b1d127e09d4c171e105bdcd6b61002b39685a8016b9e"
 }

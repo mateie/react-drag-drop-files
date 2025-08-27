@@ -4,7 +4,6 @@
   "description": "Light React Drag & Drop files and images library styled by styled-components",
   "author": "Karim <karimmokhtar28@gmail.com>",
   "license": "MIT",
-  "private": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
